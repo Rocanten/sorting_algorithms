@@ -1,3 +1,7 @@
+/*
+ To use this app for large arrays, you should increase stack size in your compiler flags
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -23,6 +27,7 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 
+// Fills array with some double numbers
 void GenerateArray(double A[], size_t n)
 {
     double startnumber = 0.01;
@@ -33,6 +38,7 @@ void GenerateArray(double A[], size_t n)
     }
 }
 
+// Shuffles array to get random sort
 void ShuffleArray(double A[], size_t n)
 {
     if(n > 1)
@@ -46,6 +52,7 @@ void ShuffleArray(double A[], size_t n)
     }
 }
 
+// Prints array
 void PrintArray(double A[], size_t n)
 {
     for (int i = 0; i < n; ++i) {
@@ -53,6 +60,7 @@ void PrintArray(double A[], size_t n)
     }
 }
 
+// Checks if an array is sorted and prints a message if it is sorted or not
 void CheckIsSorted(double A[], size_t n)
 {
     for (int i = 0; i < n; ++i) {
@@ -69,7 +77,7 @@ void CheckIsSorted(double A[], size_t n)
     printf("\nArray is sorted\n");
 }
 
-
+// Merge sort function, is called with recursion
 void MergeSort(double A[], size_t l, size_t r)
 {
     if(l < r)
@@ -83,29 +91,36 @@ void MergeSort(double A[], size_t l, size_t r)
     
 }
 
+// Merge function which compares splited numbers and writes them to final array
 void Merge(double A[], size_t l, size_t m, size_t r)
 {
+    // Calculating number of elements of left array
     size_t n1 = m - l + 1;
+    // Calculating number of elements of right array
     size_t n2 = r - m;
     
     size_t i;
     size_t j;
+    // First element to fill in final array is the left point
     size_t k = l;
     
+    // Creating subarrays
     double L[n1];
     double R[n2];
     
+    // Filling left subarray with elements
     for (i = 0; i < n1; i++) {
         L[i] = A[l + i];
     }
     
+    // Filling right subarray with elements
     for (j = 0; j < n2; j++) {
         R[j] = A[m + 1 + j];
     }
     
     i = 0;
     j = 0;
-    
+    // Comparing numbers and filling final array
     while (i < n1 && j < n2) {
         if(L[i] <= R[j])
         {
@@ -119,6 +134,7 @@ void Merge(double A[], size_t l, size_t m, size_t r)
         k++;
     }
     
+    // Filling the rest elements if there are any
     while (i < n1) {
         A[k] = L[i];
         i++;
