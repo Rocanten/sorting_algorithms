@@ -10,8 +10,6 @@ void GenerateArray(double A[], size_t n);
 void ShuffleArray(double A[], size_t n);
 void PrintArray(double A[], size_t n);
 void CheckIsSorted(double A[], size_t n);
-void MergeSort(double A[], size_t l, size_t r);
-void Merge(double A[], size_t l, size_t m, size_t r);
 
 int main(int argc, const char * argv[]) {
     int const numberscount = 1000;
