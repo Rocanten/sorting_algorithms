@@ -31,8 +31,8 @@ void Merge(double A[], size_t l, size_t m, size_t r)
     size_t k = l;
     
     // Creating subarrays
-    double L[n1];
-    double R[n2];
+    double* L = malloc(n1 * sizeof(double));
+    double* R = malloc(n1 * sizeof(double));
     
     // Filling left subarray with elements
     for (i = 0; i < n1; i++) {
